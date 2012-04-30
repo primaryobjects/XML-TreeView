@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLNav", "XMLNav\XMLNav.csproj", "{FFAA1FCD-9DAD-4510-A7DF-76F3575176D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLNav.Managers", "XMLNav.Managers\XMLNav.Managers.csproj", "{BEEF42A3-9F14-4B08-8A88-7864F035896C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLNav.Types", "XMLNav.Types\XMLNav.Types.csproj", "{F5A3271B-1448-4589-941F-029176DCEE95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEEF42A3-9F14-4B08-8A88-7864F035896C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEEF42A3-9F14-4B08-8A88-7864F035896C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEEF42A3-9F14-4B08-8A88-7864F035896C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEEF42A3-9F14-4B08-8A88-7864F035896C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A3271B-1448-4589-941F-029176DCEE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A3271B-1448-4589-941F-029176DCEE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A3271B-1448-4589-941F-029176DCEE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A3271B-1448-4589-941F-029176DCEE95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAA1FCD-9DAD-4510-A7DF-76F3575176D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAA1FCD-9DAD-4510-A7DF-76F3575176D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAA1FCD-9DAD-4510-A7DF-76F3575176D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAA1FCD-9DAD-4510-A7DF-76F3575176D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

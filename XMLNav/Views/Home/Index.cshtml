@@ -1,0 +1,44 @@
+﻿@using XMLNav.Types
+@using XMLNav.Helpers
+
+@model List<TreeNode>
+
+@{
+    ViewBag.Title = "XMLNav Test";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // third example
+        $("#treeView").treeview({
+            animated: "fast",
+            collapsed: true,
+            unique: false,
+            persist: "cookie",
+            toggle: function () {
+            }
+        });
+    });
+</script>
+
+<div class="row" style="padding: 8px;">
+    <div class="span4">
+        <div class="well" style="padding: 8px 0;">
+            <ul class="nav nav-list">
+              <li class="nav-header">
+                List header
+              </li>
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Library</a>
+              </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="span4">
+        <ul id="treeView" class="filetree">            @Html.Raw(@Html.RenderTree(Model))
+        </ul>    </div>
+</div>

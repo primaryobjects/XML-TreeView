@@ -11,17 +11,17 @@ namespace XMLNav.Managers
 {
     public static class XMLManager
     {
-        public static List<TreeNode> ParseXML(string filePath)
+        public static List<TreeNode> ParseXML(string filePath, bool removeDuplicates = false)
         {
             string xml = File.ReadAllText(filePath);
 
             XDocument document = XDocument.Parse(xml);
 
             // Parse the XML.
-            return ParseElement(document.Root);
+            return ParseElement(document.Root, 0, removeDuplicates);
         }
-        
-        private static List<TreeNode> ParseElement(XElement parent)
+
+        private static List<TreeNode> ParseElement(XElement parent, int depth, bool removeDuplicates)
         {
             List<TreeNode> tree = new List<TreeNode>();
 
@@ -31,11 +31,26 @@ namespace XMLNav.Managers
             // Recurse.
             if (parent.HasElements)
             {
+                depth++;
+
                 foreach (XElement child in parent.Elements())
                 {
                     // Parse child elements.
-                    node.Children.AddRange(ParseElement(child));
+                    List<TreeNode> nodeList = ParseElement(child, depth, removeDuplicates);
+
+                    // Filter out duplicates.
+                    foreach (TreeNode newNode in nodeList)
+                    {
+                        newNode.Depth = depth;
+
+                        if ((removeDuplicates && !TreeManager.IsExists(newNode, node.Children)) || !removeDuplicates)
+                        {
+                            node.Children.Add(newNode);
+                        }
+                    }
                 }
+
+                depth--;
             }
             else
             {

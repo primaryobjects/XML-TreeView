@@ -14,31 +14,21 @@ namespace XMLNav.Helpers
         private static string RenderTreeNodeBootstrap(TreeNode parent)
         {
             string html = "";
-            bool leaf = false;
+            string name = parent.Name;
 
-             /* <li class="nav-header">
-                List header
-              </li>
-              <li class="active">
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Library</a>
-              </li>*/
-
-            if (parent.Children.Count == 0)
+            for (int i = 0; i < parent.Depth; i++)
             {
-                leaf = true;
+                name = "&nbsp;&nbsp;" + name;
             }
 
             // Create a TreeNode for this node.
-            if (!leaf)
+            if (parent.Children.Count > 0)
             {
-                html += "<li class=\"nav-header\">" + parent.Name + "</li>\n";
+                html += "<li class=\"nav-header\">" + name + "</li>\n";
             }
             else
             {
-                html += "<li><a href=\"#\">" + parent.Name + "</a></li>\n";
+                html += "<li><a href=\"#\">" + name + "</a></li>\n";
             }
 
             foreach (TreeNode child in parent.Children)

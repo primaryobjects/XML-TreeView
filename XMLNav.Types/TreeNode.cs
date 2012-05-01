@@ -10,6 +10,7 @@ namespace XMLNav.Types
         public string Name { get; set; }
         public string Value { get; set; }
         public List<TreeNode> Children { get; set; }
+        public int Depth { get; set; }
 
         public TreeNode()
         {

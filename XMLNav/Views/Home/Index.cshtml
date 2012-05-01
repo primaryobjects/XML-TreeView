@@ -1,7 +1,7 @@
-﻿@using XMLNav.Types
+﻿@using XMLNav.Models
 @using XMLNav.Helpers
 
-@model List<TreeNode>
+@model HomeModel
 
 @{
     ViewBag.Title = "XMLNav Test";
@@ -11,7 +11,14 @@
     <div class="span4">
         <div class="well" style="padding: 8px 0;">
             <ul class="nav nav-list">
-            @Html.Raw(@Html.RenderTreeBootstrap(Model))
+            @Html.Raw(@Html.RenderTreeBootstrap(Model.LeftTree))
+            </ul>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="well" style="padding: 8px 0;">
+            <ul class="nav nav-list">
+            @Html.Raw(@Html.RenderTreeBootstrap(Model.RightTree))
             </ul>
         </div>
     </div>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using XMLNav.Managers;
+using XMLNav.Models;
 using XMLNav.Types;
 
 namespace XMLNav.Controllers
@@ -13,9 +14,12 @@ namespace XMLNav.Controllers
     {
         public ActionResult Index()
         {
-            List<TreeNode> tree = XMLManager.ParseXML(Server.MapPath(".") + "\\" + ConfigurationManager.AppSettings["XMLFilePath"]);
+            HomeModel homeModel = new HomeModel();
 
-            return View(tree);
+            homeModel.LeftTree = XMLManager.ParseXML(Server.MapPath(".") + "\\" + ConfigurationManager.AppSettings["XMLFilePath"]);
+            homeModel.RightTree = XMLManager.ParseXML(Server.MapPath(".") + "\\" + ConfigurationManager.AppSettings["AEFilePath"], true);
+
+            return View(homeModel);
         }
     }
 }

@@ -4,3 +4,4 @@
 *.txt
 *.suo
 !README.txt
+XMLNav/bin/*.xml

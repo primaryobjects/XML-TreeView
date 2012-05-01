@@ -9,58 +9,59 @@ namespace XMLNav.Helpers
 {
     public static class Html
     {
-        private static string RenderTreeNode(TreeNode parent)
+        #region RenderTree Bootstrap
+
+        private static string RenderTreeNodeBootstrap(TreeNode parent)
         {
             string html = "";
             bool leaf = false;
-            string spanClass = "folder";
+
+             /* <li class="nav-header">
+                List header
+              </li>
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Library</a>
+              </li>*/
 
             if (parent.Children.Count == 0)
             {
                 leaf = true;
-                spanClass = "file";
             }
 
             // Create a TreeNode for this node.
-            html += "<li><span class='" + spanClass + "'>" + parent.Name;
-            if (leaf)
-            {
-                html += ": " + parent.Value;
-            }
-            html += "</span>";
-
             if (!leaf)
             {
-                html += "\n<ul>\n";
-
-                foreach (TreeNode child in parent.Children)
-                {
-
-                    // Render child elements.
-                    html += RenderTreeNode(child);
-                }
-
-                html += "</ul>\n";
+                html += "<li class=\"nav-header\">" + parent.Name + "</li>\n";
+            }
+            else
+            {
+                html += "<li><a href=\"#\">" + parent.Name + "</a></li>\n";
             }
 
-            html += "</li>\n";
+            foreach (TreeNode child in parent.Children)
+            {
+                // Render child elements.
+                html += RenderTreeNodeBootstrap(child);
+            }
 
             return html;
         }
 
-        /// <summary>
-        /// Renders a List of TreeNode into a jQuery TreeView (from http://jquery.bassistance.de/treeview/demo/?2)
-        /// </summary>
-        public static string RenderTree(this HtmlHelper helper, List<TreeNode> tree)
+        public static string RenderTreeBootstrap(this HtmlHelper helper, List<TreeNode> tree)
         {
             string html = "";
 
             foreach (TreeNode node in tree)
             {
-                html += RenderTreeNode(node);
+                html += RenderTreeNodeBootstrap(node);
             }
 
             return html;
         }
+
+        #endregion
     }
 }

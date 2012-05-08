@@ -16,6 +16,7 @@ namespace XMLNav.Controllers
         {
             HomeModel homeModel = new HomeModel();
 
+            // Create the left-side and right-side XML tree controls.
             homeModel.LeftTree = XMLManager.ParseXML(Server.MapPath(".") + "\\" + ConfigurationManager.AppSettings["XMLFilePath"]);
             homeModel.RightTree = XMLManager.ParseXML(Server.MapPath(".") + "\\" + ConfigurationManager.AppSettings["AEFilePath"], true);
 
